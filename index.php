@@ -5,16 +5,11 @@ require_once __DIR__ . "./Models/Food.php";
 require_once __DIR__ . "./Models/Toy.php";
 require_once __DIR__ . "./Models/PetHouse.php";
 
-$productOne = new Food("", "Croccantini secchi", 22, "Food", "Dog", 600);
-$productTwo = new Food("", "Croccantini secchi", 22, "Food", "Dog", 600);
-$productThree = new Food("", "Croccantini secchi", 22, "Food", "Dog", 600);
-$productFour = new Food("", "Croccantini secchi", 22, "Food", "Dog", 600);
+$productOne = new Food("https://www.ideashoppingcenter.it/files/archivio_Files/Foto/44645_2.JPG", "Croccantini secchi", 22, "Dog", "Food", 600);
+$productTwo = new Toy("https://ilcerchiodeipet.com/508-large_default/frisbee-per-cani-atomic-flyer-nerf-disco-volante-in-gomma-termoplastica-durevole.jpg", "Fresbee", 40, "Toy", "Dog", 0.5);
+$productThree = new PetHouse("https://cdn.shopify.com/s/files/1/0603/8972/0279/products/Cuccia1.png?v=1635764042", "Cuccia morbida", 33, "PetHouse", "Cat", "green");
 
-$productsList = $productOne;
-$productsList = $productTwo;
-$productsList = $productThree;
-$productsList = $productFour;
-
+$productsList = [$productOne, $productTwo, $productThree];
 
 ?>
 
@@ -34,13 +29,13 @@ $productsList = $productFour;
     <div class="container d-flex flex-wrap justify-content-around">
         <?php foreach ($productsList as $product) { ?>
             <div class="card mb-3" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+                <img src="<?php echo $product->image ?>" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $product->name ?></h5>
-                    <p class="card-text">price</p>
+                    <p class="card-text"><?php echo $product->price ?>$</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">type</li>
+                    <li class="list-group-item">type: <?php echo $product->type ?></li>
                 </ul>
             </div>
         <?php } ?>

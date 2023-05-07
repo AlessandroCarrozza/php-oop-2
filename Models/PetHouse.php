@@ -1,11 +1,11 @@
 <?php
 
 class PetHouse extends Product {
-    public $space;
+    public $color;
 
-    public function __construct($_image, $_name, $_price, $_type, $_animal, $_space) {
+    public function __construct($_image, $_name, $_price, $_type, $_animal, $_color) {
         parent::__construct($_image, $_name, $_price, $_type, $_animal);
 
-        $this->space = $_space;
+        $this->color = $_color;
     }
 }
