@@ -1,5 +1,20 @@
 <?php
 
+require_once __DIR__ . "./Models/Product.php";
+require_once __DIR__ . "./Models/Food.php";
+require_once __DIR__ . "./Models/Toy.php";
+require_once __DIR__ . "./Models/PetHouse.php";
+
+$productOne = new Food("", "Croccantini secchi", 22, "Food", "Dog", 600);
+$productTwo = new Food("", "Croccantini secchi", 22, "Food", "Dog", 600);
+$productThree = new Food("", "Croccantini secchi", 22, "Food", "Dog", 600);
+$productFour = new Food("", "Croccantini secchi", 22, "Food", "Dog", 600);
+
+$productsList = $productOne;
+$productsList = $productTwo;
+$productsList = $productThree;
+$productsList = $productFour;
+
 
 ?>
 
@@ -17,17 +32,18 @@
     <h1 class="text-center p-4">My Pet Store OOP</h1>
 
     <div class="container d-flex flex-wrap justify-content-around">
-        <div class="card mb-3" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">title</h5>
-                <p class="card-text">price</p>
+        <?php foreach ($productsList as $product) { ?>
+            <div class="card mb-3" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $product->name ?></h5>
+                    <p class="card-text">price</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">type</li>
+                </ul>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">type</li>
-            </ul>
-        </div>
-
+        <?php } ?>
     </div>
 </body>
 </html>
