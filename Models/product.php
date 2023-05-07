@@ -11,6 +11,7 @@ class Product {
         $this->image = $_image;
         $this->name = $_name;
         $this->price = $_price;
-        $this->type = $_animal;
+        $this->type = $_type;
+        $this->animal = $_animal;
     }
 }

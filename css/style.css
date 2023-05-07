@@ -1,0 +1,17 @@
+.animal-label {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: lightgrey;
+    border-radius: 5px;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+i {
+    font-size: 1.5rem;
+}
