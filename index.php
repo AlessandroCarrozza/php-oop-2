@@ -1,18 +1,22 @@
 <?php
 
-require_once __DIR__ . "./Models/Product.php";
-require_once __DIR__ . "./Models/Food.php";
-require_once __DIR__ . "./Models/Toy.php";
-require_once __DIR__ . "./Models/PetHouse.php";
+require_once __DIR__ . "/Models/Product.php";
+require_once __DIR__ . "/Models/Food.php";
+require_once __DIR__ . "/Models/Toy.php";
+require_once __DIR__ . "/Models/PetHouse.php";
+require_once __DIR__ . "/Traits/Quantifiable.php";
 
 $productOne = new Food("https://www.ideashoppingcenter.it/files/archivio_Files/Foto/44645_2.JPG", "Croccantini secchi", "Food", "Dog", 600);
 $productOne->setPrice(22);
+$productOne->quantity = null;
 
 $productTwo = new Toy("https://ilcerchiodeipet.com/508-large_default/frisbee-per-cani-atomic-flyer-nerf-disco-volante-in-gomma-termoplastica-durevole.jpg", "Fresbee", "Toy", "Dog", 0.5);
 $productTwo->setPrice(30);
+$productTwo->quantity = 86;
 
 $productThree = new PetHouse("https://cdn.shopify.com/s/files/1/0603/8972/0279/products/Cuccia1.png?v=1635764042", "Cuccia d'acciaio", "PetHouse", "Cat", "Green");
 $productThree->setPrice(58);
+$productThree->quantity = 14;
 
 
 $productsList = [$productOne, $productTwo, $productThree];
@@ -66,6 +70,12 @@ $productsList = [$productOne, $productTwo, $productThree];
                             <?php } ?>                                     
                         </span>
                     </li>
+
+                    <?php if ($product->quantity != null) { ?>
+                    <li class="list-group-item">
+                        Quantity: <?php echo $product->quantity ?>
+                    </li>
+                    <?php } ?>
                 </ul>
             </div>
         <?php } ?>
