@@ -18,6 +18,10 @@ class Product {
 
     public function setPrice($_price) {
         $this->price = $_price;
+
+        if (!is_numeric($_price) || $_price <= 0) {
+            throw new Exception("Il valore passato non è un numero oppure è un numero sotto lo 0.1");
+        } 
     }
 
     public function getPrice() {
